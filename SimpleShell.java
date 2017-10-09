@@ -9,13 +9,10 @@ public class SimpleShell {
 
         String commandLine;
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-
-        ArrayList<String> userCommands = new ArrayList<String>();
         ProcessBuilder pb = new ProcessBuilder();
 
-
         //Start Shell, Break Out With <Control><C>
-        while (true) {
+        while(true){
             //Read User Input
             System.out.print("jsh>");
             commandLine = console.readLine();
@@ -28,19 +25,63 @@ public class SimpleShell {
             StringTokenizer commands = new StringTokenizer(commandLine);
 
             //Adding Commands To ArrayList
-            while(commands.hasMoreTokens()) {
+            ArrayList<String> userCommands = new ArrayList<String>();
+
+            while(commands.hasMoreTokens()){
                 userCommands.add(commands.nextToken());
             }
 
 
+                    //Handles "cd" Command
+                    //Go To Home Directory
+                    if( (userCommands.size() == 1 && userCommands.get(0).equalsIgnoreCase("cd")) |
+                        (userCommands.size() == 2 && userCommands.get(0).equalsIgnoreCase("cd") &&
+                         userCommands.get(1).equalsIgnoreCase("~")) ){
+
+                        System.out.println(userCommands);
+                        File home_dir = new File(System.getProperty("user.home"));
+                        System.out.println("Home Directory:  " + home_dir);
+                        pb.directory(home_dir);
+                        continue;
+
+                    //Stay At Same Directory
+                    }else if(false){
 
 
-            /* CODE FOR PART 2 AND 3 HERE*/
+                        //Code for "cd ."
 
+
+                    //Go Up 1 Level In Directory Tree
+                    }else if(false){
+
+
+                        //code for "cd .."
+
+
+                    //Go Up 2 Levels In Directory Tree ( or n levels )
+                    }else if(false){
+
+
+                        //code for "cd ../.."
+
+
+                    //Go To Root Directory
+                    }else if(false){
+
+
+                        //code for "cd /"
+
+
+                    }
+
+
+
+                    /* CODE FOR HISTORY COMMAND GOES HERE*/
 
 
 
             //Start Process from ProcessBuilder
+            //Add A Try Catch Finally Block! For Unknown Commands
             pb.command(userCommands);
             Process process = pb.start();
 
@@ -52,7 +93,7 @@ public class SimpleShell {
             //Reading Output Of Process
             String line;
 
-            while ( (line = br.readLine()) != null )
+            while( (line = br.readLine()) != null )
                 System.out.println(line);
 
             br.close();
