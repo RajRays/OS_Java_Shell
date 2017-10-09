@@ -7,9 +7,14 @@ public class SimpleShell {
 
     public static void main(String[] args) throws IOException {
 
+
         String commandLine;
         BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
         ProcessBuilder pb = new ProcessBuilder();
+
+        File current_dir = new File(new File(".").getAbsolutePath());
+        File home_dir = new File(System.getProperty("user.home"));
+
 
         //Start Shell, Break Out With <Control><C>
         while(true){
@@ -31,48 +36,87 @@ public class SimpleShell {
                 userCommands.add(commands.nextToken());
             }
 
+                    //Handles "ls" Command -> List
+                    if(userCommands.contains("ls")) {
 
-                    //Handles "cd" Command
-                    //Go To Home Directory
-                    if( (userCommands.size() == 1 && userCommands.get(0).equalsIgnoreCase("cd")) |
-                        (userCommands.size() == 2 && userCommands.get(0).equalsIgnoreCase("cd") &&
-                         userCommands.get(1).equalsIgnoreCase("~")) ){
-
-                        System.out.println(userCommands);
-                        File home_dir = new File(System.getProperty("user.home"));
-                        System.out.println("Home Directory:  " + home_dir);
-                        pb.directory(home_dir);
+                        //Using Variable "current_dir"
+                        File[] fileList = current_dir.listFiles();
+                        for (File file : fileList) {
+                            if (file.isFile() | file.isDirectory()) {
+                                System.out.println(file.getName());
+                            }
+                        }
                         continue;
 
-                    //Stay At Same Directory
-                    }else if(false){
+                    }//END "ls" Command
 
 
-                        //Code for "cd ."
+
+                    //Handles "cd" Command -> Change Directory
+                    if(userCommands.contains("cd")) {
+
+                        //Go To Home Directory
+                        if ((userCommands.size() == 1 && userCommands.get(0).equals("cd")) |
+                            (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
+                             userCommands.get(1).equals("~"))) {
 
 
-                    //Go Up 1 Level In Directory Tree
-                    }else if(false){
+                            System.out.println("Home Directory:  " + home_dir);
+                            current_dir = home_dir;
+                            continue;
 
 
-                        //code for "cd .."
+                        //Change Into Any Valid Directory
+                        } else if (false){
 
 
-                    //Go Up 2 Levels In Directory Tree ( or n levels )
-                    }else if(false){
 
 
-                        //code for "cd ../.."
+
+                        //Stay At Same Directory
+                        } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
+                                   userCommands.get(1).equals(".")) {
+
+                            System.out.println("Current Directory: " + current_dir);
+                            continue;
 
 
-                    //Go To Root Directory
-                    }else if(false){
+                        //Go Up 1 Level In Directory Tree
+                        } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
+                                   userCommands.get(1).equals("..")) {
 
 
-                        //code for "cd /"
+                            current_dir = current_dir.getParentFile();
+                            System.out.println("New Directory : " + current_dir);
+                            continue;
 
 
-                    }
+                        //Go Up 2 Levels In Directory Tree ( or n levels )
+                        } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
+                                userCommands.get(1).equals("../")) {
+
+
+                            System.out.println("NOT YET IMPLEMENTED");
+                            continue;
+
+                            /*for(int i = [Number of ../ That Appear] ; i > 0 ; i--)
+                              current_dir = current_dir.getParentFile(); */
+
+                            //code for "cd ../.."
+
+
+                        //Go To Root Directory
+                        } else if (false) {
+
+
+                            //code for "cd /"
+
+
+                        }
+
+                    }//End "cd" Command
+
+
 
 
 
@@ -80,24 +124,31 @@ public class SimpleShell {
 
 
 
-            //Start Process from ProcessBuilder
-            //Add A Try Catch Finally Block! For Unknown Commands
-            pb.command(userCommands);
-            Process process = pb.start();
 
-            //Establish Link To Read Process Output
-            InputStream iStream = process.getInputStream();
-            InputStreamReader iStreamReader = new InputStreamReader(iStream);
-            BufferedReader br = new BufferedReader(iStreamReader);
 
-            //Reading Output Of Process
-            String line;
+            try {
+                //Start Process from ProcessBuilder
+                //Add A Try Catch Finally Block! For Unknown Commands
+                pb.command(userCommands);
+                Process process = pb.start();
 
-            while( (line = br.readLine()) != null )
-                System.out.println(line);
+                //Establish Link To Read Process Output
+                InputStream iStream = process.getInputStream();
+                InputStreamReader iStreamReader = new InputStreamReader(iStream);
+                BufferedReader br = new BufferedReader(iStreamReader);
 
-            br.close();
 
+                //Reading Output Of Process
+                String line;
+
+                while ((line = br.readLine()) != null)
+                    System.out.println(line);
+
+                br.close();
+
+            }catch (Exception e){
+                e.getStackTrace();
+            }
 
 
             /** The Steps Are...
