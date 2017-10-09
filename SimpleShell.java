@@ -26,7 +26,7 @@ public class SimpleShell {
             if(commandLine.equals(""))
                 continue;
 
-            //Separate Commands Within commandLine variable
+            //Separate Commands Within "commandLine" Variable
             StringTokenizer commands = new StringTokenizer(commandLine);
 
             //Adding Commands To ArrayList
@@ -66,13 +66,6 @@ public class SimpleShell {
                             continue;
 
 
-                        //Change Into Any Valid Directory
-                        } else if (false){
-
-
-
-
-
                         //Stay At Same Directory
                         } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
                                    userCommands.get(1).equals(".")) {
@@ -84,7 +77,6 @@ public class SimpleShell {
                         //Go Up 1 Level In Directory Tree
                         } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
                                    userCommands.get(1).equals("..")) {
-
 
                             current_dir = current_dir.getParentFile();
                             System.out.println("New Directory : " + current_dir);
@@ -111,6 +103,20 @@ public class SimpleShell {
 
                             //code for "cd /"
 
+
+                        //Change Into Any Valid Directory
+                        } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd")) {
+
+                            File targetFile = new File(current_dir + "\\" + userCommands.get(1));
+
+                                if(targetFile.exists() & (targetFile.isFile() || targetFile.isDirectory())) {
+                                    current_dir = targetFile;
+                                    continue;
+                                } else {
+                                    System.out.println("Please Enter A Valid Directory");
+                                    System.out.println("Use \"ls\" Command To View Valid Directories");
+                                    continue;
+                                }
 
                         }
 
