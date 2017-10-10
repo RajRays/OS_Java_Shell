@@ -18,6 +18,7 @@ Part 2
       * [cd ..]       -> Ascend One Directory
       * [cd ../../..] -> Ascend Multiple (nth) Directories
       * [cd /]        -> Change To Root Directory 
+* ArrayList Data Structure Used To Break And Pass Commands To ProcessBuilder
      
      
 Part 3
@@ -25,7 +26,7 @@ Part 3
 
 
 
-Extra Commands I Added For Fun
+Extra Commands Added For Fun
 * "ls" -> List All Files And Directories Within Current Directory
 * "cp" -> Copy One File To Another. If File Copied Too Does Not Exist, Creates File 
 * "cat" -> Reads File To Console
