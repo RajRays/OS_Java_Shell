@@ -87,16 +87,22 @@ public class SimpleShell {
 
                         //Go Up 2 Levels In Directory Tree ( or n levels )
                         } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
-                                userCommands.get(1).equals("../")) {
+                                userCommands.get(1).startsWith("../")) {
 
 
-                            System.out.println("NOT YET IMPLEMENTED");
+                            String[] levels = userCommands.get(1).split("/");
+
+                            for(int i = 0; i < levels.length ; i++) {
+                                if(current_dir.getParentFile() != null) {
+                                    current_dir = current_dir.getParentFile();
+                                }
+                            }
+
+                            if(current_dir.getParentFile() == null){
+                                System.out.println("You Are At Root Directory");
+                            }
+
                             continue;
-
-                            /*for(int i = [Number of ../ That Appear] ; i > 0 ; i--)
-                              current_dir = current_dir.getParentFile(); */
-
-                            //code for "cd ../.."
 
 
                         //Go To Root Directory
@@ -130,7 +136,7 @@ public class SimpleShell {
 
                         }
 
-                    }//End "cd" Command
+                    }//END "cd" Command
 
 
 
