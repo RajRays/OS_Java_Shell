@@ -56,10 +56,17 @@ public class SimpleShell {
                     if(userCommands.contains("cat")) {
 
 
-                        if(userCommands.size() == 2 && userCommands.get(0).equals("cat")) {
+                        if (userCommands.size() == 2 && userCommands.get(0).equals("cat")) {
 
+                            BufferedReader reader = new BufferedReader(new FileReader(userCommands.get(1)));
+                            String fileContents = "";
+                            String line = null;
 
-
+                            while ((line = reader.readLine()) != null) {
+                                    fileContents += line + "\n";
+                            }
+                            System.out.print(fileContents);
+                            continue;
                         }
 
 
