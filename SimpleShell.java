@@ -16,7 +16,7 @@ public class SimpleShell {
         File home_dir = new File(System.getProperty("user.home"));
 
 
-        //Start Shell, Break Out With <Control><C>
+        //START SHELL, Break Out With <Control><C>
         while(true){
             //Read User Input
             System.out.print("jsh>");
@@ -61,7 +61,7 @@ public class SimpleShell {
                              userCommands.get(1).equals("~"))) {
 
 
-                            System.out.println("Home Directory:  " + home_dir);
+                            System.out.println("Now At Home Directory:  " + home_dir);
                             current_dir = home_dir;
                             continue;
 
@@ -70,7 +70,8 @@ public class SimpleShell {
                         } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
                                    userCommands.get(1).equals(".")) {
 
-                            System.out.println("Current Directory: " + current_dir);
+
+                            System.out.println("Current Directory:  " + current_dir);
                             continue;
 
 
@@ -78,8 +79,9 @@ public class SimpleShell {
                         } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
                                    userCommands.get(1).equals("..")) {
 
+
                             current_dir = current_dir.getParentFile();
-                            System.out.println("New Directory : " + current_dir);
+                            System.out.println("Moved To Directory :  " + current_dir);
                             continue;
 
 
@@ -98,14 +100,20 @@ public class SimpleShell {
 
 
                         //Go To Root Directory
-                        } else if (false) {
+                        } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
+                                userCommands.get(1).equals("/")) {
 
 
-                            //code for "cd /"
+                            while((current_dir.getParentFile() != null)) {
+                                current_dir = current_dir.getParentFile();
+                            }
+                            System.out.println("Now At Root Directory:  " + current_dir);
+                            continue;
 
 
                         //Change Into Any Valid Directory
                         } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd")) {
+
 
                             File targetFile = new File(current_dir + "\\" + userCommands.get(1));
 
@@ -113,10 +121,12 @@ public class SimpleShell {
                                     current_dir = targetFile;
                                     continue;
                                 } else {
-                                    System.out.println("Please Enter A Valid Directory");
+                                    System.out.println("\"" + userCommands.get(1) + "\""
+                                                            + " Is Not A Valid Directory");
                                     System.out.println("Use \"ls\" Command To View Valid Directories");
                                     continue;
                                 }
+
 
                         }
 
