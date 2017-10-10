@@ -52,6 +52,57 @@ public class SimpleShell {
 
 
 
+                    //Handles "cat" Command -> Reads File To Console
+                    if(userCommands.contains("cat")) {
+
+
+                        if(userCommands.size() == 2 && userCommands.get(0).equals("cat")) {
+
+
+
+                        }
+
+
+                    }//END "cat" Command
+
+
+
+                    //Handles "cp" Command -> Copy
+                    if(userCommands.contains("cp")) {
+
+                        if(userCommands.size() == 3 && userCommands.get(0).equals("cp")) {
+
+                            FileInputStream in = null;
+                            FileOutputStream out = null;
+
+                            try {
+                                in = new FileInputStream(userCommands.get(1));
+                                out = new FileOutputStream(userCommands.get(2));
+
+                                int character;
+                                while ((character = in.read()) != -1) {
+                                    out.write(character);
+                                }
+                            } catch (Exception e) {
+
+                                System.out.println("Error Copying File");
+
+                            } finally {
+                                if (in != null) {
+                                    in.close();
+                                }
+                                if (out != null) {
+                                    out.close();
+                                }
+                                System.out.println("File Copied Successfully");
+                            }
+                            continue;
+                        }
+
+                    }//END "cp" Command
+
+
+
                     //Handles "cd" Command -> Change Directory
                     if(userCommands.contains("cd")) {
 
