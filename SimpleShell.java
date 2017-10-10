@@ -77,6 +77,7 @@ public class SimpleShell {
 
 
             //Handles "cp" Command -> Copy
+            //If Second Argument Does Not Exist, It Will Create New File
             if (userCommands.contains("cp")) {
 
 
@@ -161,6 +162,8 @@ public class SimpleShell {
                         }
                     }
 
+                    System.out.println("Moved To Directory :  " + current_dir);
+
                     if (current_dir.getParentFile() == null) {
                         System.out.println("You Are At Root Directory");
                     }
@@ -194,8 +197,8 @@ public class SimpleShell {
                                 + " Is Not A Valid Directory");
                         System.out.println("Use \"ls\" Command To View Valid Directories");
                         continue;
-                        }
                     }
+                }
 
 
             }//END "cd" Command
