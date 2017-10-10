@@ -28,6 +28,6 @@ Part 3
 
 Extra Commands Added For Fun
 * "ls" -> List All Files And Directories Within Current Directory
-* "cp" -> Copy One File To Another. If File Copied Too Does Not Exist, Creates File 
+* "cp" -> Copy One File To Another. If File Recipient Does Not Exist, Creates File 
 * "cat" -> Reads File To Console
 * "cd" -> "cd" Is A Requirement, However I Added The Ability To Change Into Any Valid Directory
