@@ -143,9 +143,13 @@ public class SimpleShell {
                 } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
                         userCommands.get(1).equals("..")) {
 
+                    if (current_dir.getParentFile() != null) {
 
-                    current_dir = current_dir.getParentFile();
-                    System.out.println("Moved To Directory :  " + current_dir);
+                        current_dir = current_dir.getParentFile();
+                        System.out.println("Moved To Directory :  " + current_dir);
+                    } else {
+                        System.out.println("You Are At Root Directory");
+                    }
                     continue;
 
 
@@ -231,15 +235,7 @@ public class SimpleShell {
             } catch (Exception e) {
                 e.getStackTrace();
             }
-
-
-            /** The Steps Are...
-             * (1) Parse the input to obtain the command and any parameters <DONE>
-             * (2) Create a ProcessBuilder object <DONE>
-             * (3) Start the process <DONE>
-             * (4) Obtain the output stream <DONE>
-             * (5) Output the contents returned by the command <WORKING ON IT>
-             */
+            
 
         }//END SHELL
     }//END MAIN
