@@ -14,6 +14,7 @@ public class SimpleShell {
 
         File current_dir = new File(new File(".").getAbsolutePath());
         File home_dir = new File(System.getProperty("user.home"));
+        ArrayList<String> commandHistory = new ArrayList<String>();
 
 
         //START SHELL, Break Out With <Control><C>
@@ -21,6 +22,7 @@ public class SimpleShell {
             //Read User Input
             System.out.print("jsh>");
             commandLine = console.readLine();
+            commandHistory.add(commandLine);
 
             //If User Entered A Return, Loop Again
             if (commandLine.equals(""))
@@ -121,8 +123,8 @@ public class SimpleShell {
 
                 //Go To Home Directory
                 if ((userCommands.size() == 1 && userCommands.get(0).equals("cd")) |
-                        (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
-                                userCommands.get(1).equals("~"))) {
+                    (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
+                     userCommands.get(1).equals("~"))) {
 
 
                     System.out.println("Now At Home Directory:  " + home_dir);
@@ -131,8 +133,8 @@ public class SimpleShell {
 
 
                 //Stay At Same Directory
-                } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
-                        userCommands.get(1).equals(".")) {
+                } else if ((userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
+                            userCommands.get(1).equals("."))) {
 
 
                     System.out.println("Current Directory:  " + current_dir);
@@ -141,7 +143,7 @@ public class SimpleShell {
 
                 //Go Up 1 Level In Directory Tree
                 } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
-                        userCommands.get(1).equals("..")) {
+                           userCommands.get(1).equals("..")) {
 
                     if (current_dir.getParentFile() != null) {
 
@@ -155,7 +157,7 @@ public class SimpleShell {
 
                 //Go Up 2 Levels In Directory Tree ( or n levels )
                 } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
-                        userCommands.get(1).startsWith("../")) {
+                           userCommands.get(1).startsWith("../")) {
 
 
                     String[] levels = userCommands.get(1).split("/");
@@ -177,7 +179,7 @@ public class SimpleShell {
 
                 //Go To Root Directory
                 } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
-                        userCommands.get(1).equals("/")) {
+                           userCommands.get(1).equals("/")) {
 
 
                     while ((current_dir.getParentFile() != null)) {
@@ -209,7 +211,19 @@ public class SimpleShell {
 
 
 
-                    /* CODE FOR HISTORY COMMAND GOES HERE*/
+            //Handles "history" Command -> Prints History To Console
+            if(userCommands.get(0).equals("history")) {
+
+                for (int i = 0; i < commandHistory.size(); i++) {
+
+                        String command = commandHistory.get(i);
+                        System.out.println(i + " " + command);
+
+                    }
+                    continue;
+
+
+            }//END "history" command
 
 
 
