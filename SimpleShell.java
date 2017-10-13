@@ -50,7 +50,13 @@ public class SimpleShell {
                     String previousCommand = commandHistory.get(commandHistory.size() - 2);
                     commandLine = previousCommand;
                     userCommands.clear();
-                    userCommands.add(commandLine);
+
+                    String[] tokens = commandLine.split(" ");
+                    for(int i = 0; i < tokens.length; i++) {
+                        userCommands.add(tokens[i]);
+                    }
+                    //"continue" Intentionally Omitted To Allow Previous Command To Run
+
                 } catch (ArrayIndexOutOfBoundsException e){
                     System.out.println("No Previous History");
                     continue;
