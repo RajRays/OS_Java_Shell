@@ -65,10 +65,35 @@ public class SimpleShell {
 
             //Run ith Command In History
             } else if ((userCommands.size() == 1) &&
-                    (userCommands.get(0).matches("!" + "\\d+"))) {
+                       (userCommands.get(0).matches("!" + "\\d+"))) {
 
-                System.out.println("NOT YET IMPLEMENTED");
-                continue;
+                try {
+
+                    String fullCommand = userCommands.get(0);
+                    String[] splitCommand = fullCommand.split("");
+                    ArrayList<String> refinedCommand = new ArrayList<>();
+
+                    //Inputs Every Number EXCEPT "!"
+                    for(int i = 1; i < splitCommand.length; i++) {
+                       refinedCommand.add(splitCommand[i]);
+                    }
+                    //FIX HERE
+                    int focusedCommand = Integer.parseInt(refinedCommand.toString());
+
+                    String iCommand = commandHistory.get(focusedCommand);
+                    commandLine = iCommand;
+                    userCommands.clear();
+
+                    String[] tokens = commandLine.split(" ");
+                    for(int i = 0; i < tokens.length; i++) {
+                        userCommands.add(tokens[i]);
+                    }
+                    //"continue" Intentionally Omitted To Allow Previous Command To Run
+
+                } catch (ArrayIndexOutOfBoundsException e){
+                    System.out.println("Command History Does Not Exist");
+                    continue;
+                }
 
 
             }//END History Utilities
