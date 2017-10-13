@@ -5,7 +5,7 @@ import java.util.*;
 
 public class SimpleShell {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String... args) throws IOException {
 
 
         String commandLine;
@@ -37,6 +37,35 @@ public class SimpleShell {
             while (commands.hasMoreTokens()) {
                 userCommands.add(commands.nextToken());
             }
+
+
+
+            //History Utilities
+            //Run Previous Command In History
+            if(userCommands.size() == 1 &
+               userCommands.get(0).equals("!!")){
+
+
+                try {
+                    String previousCommand = commandHistory.get(commandHistory.size() - 2);
+                    commandLine = previousCommand;
+                    continue;
+                } catch (ArrayIndexOutOfBoundsException e){
+                    System.out.println("No Previous History");
+                    continue;
+                }
+
+
+            //Run ith Command In History
+            } else if ((userCommands.size() == 1) &&
+                    (userCommands.get(0).matches("!" + "\\d+"))) {
+
+                System.out.println("NOT YET IMPLEMENTED");
+                continue;
+
+
+            }//END History Utilities
+
 
 
 
@@ -212,7 +241,9 @@ public class SimpleShell {
 
 
             //Handles "history" Command -> Prints History To Console
-            if(userCommands.get(0).equals("history")) {
+            if(userCommands.size() == 1 &
+               userCommands.get(0).equals("history")) {
+
 
                 for (int i = 0; i < commandHistory.size(); i++) {
 
