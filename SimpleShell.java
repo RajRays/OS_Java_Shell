@@ -49,7 +49,8 @@ public class SimpleShell {
                 try {
                     String previousCommand = commandHistory.get(commandHistory.size() - 2);
                     commandLine = previousCommand;
-                    continue;
+                    userCommands.clear();
+                    userCommands.add(commandLine);
                 } catch (ArrayIndexOutOfBoundsException e){
                     System.out.println("No Previous History");
                     continue;
@@ -70,7 +71,7 @@ public class SimpleShell {
 
 
             //Handles "ls" Command -> List
-            if (userCommands.contains("ls")) {
+            if (userCommands.contains("ls") & userCommands.size() == 1) {
 
                 //Using Variable "current_dir"
                 File[] fileList = current_dir.listFiles();
