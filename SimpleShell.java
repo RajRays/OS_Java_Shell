@@ -77,8 +77,8 @@ public class SimpleShell {
                     for(int i = 1; i < splitCommand.length; i++) {
                        refinedCommand.add(splitCommand[i]);
                     }
-                    //FIX HERE
-                    int focusedCommand = Integer.parseInt(refinedCommand.toString());
+
+                    int focusedCommand = Integer.parseInt(refinedCommand.get(0));
 
                     String iCommand = commandHistory.get(focusedCommand);
                     commandLine = iCommand;
