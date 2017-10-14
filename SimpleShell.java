@@ -35,7 +35,7 @@ public class SimpleShell {
             ArrayList<String> userCommands = new ArrayList<String>();
 
             while (commands.hasMoreTokens()) {
-                userCommands.add(commands.nextToken());
+                   userCommands.add(commands.nextToken());
             }
 
 
@@ -58,8 +58,8 @@ public class SimpleShell {
                     //"continue" Intentionally Omitted To Allow Previous Command To Run
 
                 } catch (ArrayIndexOutOfBoundsException e){
-                    System.out.println("No Previous History");
-                    continue;
+                         System.out.println("No Previous History");
+                         continue;
                 }
 
 
@@ -206,8 +206,8 @@ public class SimpleShell {
                 } else if (userCommands.size() == 2 && userCommands.get(0).equals("cd") &&
                            userCommands.get(1).equals("..")) {
 
-                    if (current_dir.getParentFile() != null) {
 
+                    if (current_dir.getParentFile() != null) {
                         current_dir = current_dir.getParentFile();
                         System.out.println("Moved To Directory :  " + current_dir);
                     } else {
@@ -234,7 +234,6 @@ public class SimpleShell {
                     if (current_dir.getParentFile() == null) {
                         System.out.println("You Are At Root Directory");
                     }
-
                     continue;
 
 
@@ -246,8 +245,8 @@ public class SimpleShell {
                     while ((current_dir.getParentFile() != null)) {
                         current_dir = current_dir.getParentFile();
                     }
-                    System.out.println("Now At Root Directory:  " + current_dir);
-                    continue;
+                        System.out.println("Now At Root Directory:  " + current_dir);
+                        continue;
 
 
                 //Change Into Any Valid Directory
