@@ -12,30 +12,38 @@ Part 2
 
 	[cd] Command MUST Include...
 
-			[cd]
-			-> Change To Home Directory
+		[cd]
+		-> Change To Home Directory
 
-			[cd ~]
-			-> Change To Home Directory
+		[cd ~]
+		-> Change To Home Directory
 
-			[cd .]
-			-> Stay At Current Directory
+		[cd .]
+		-> Stay At Current Directory
 
-			[cd ..]
-			-> Ascend One Directory
+		[cd ..]
+		-> Ascend One Directory
 
-			[cd ../../..]
-			-> Ascend Multiple (nth) Directories
+		[cd ../../..]
+		-> Ascend Multiple (nth) Directories
 
-			[cd /]
-			-> Change To Root Directory 
+		[cd /]
+		-> Change To Root Directory 
 
 
-* ArrayList Data Structure Used To Break And Pass Commands To ProcessBuilder
+* ArrayList Data Structure Used To Decompose And Pass Commands To ProcessBuilder
      
      
 Part 3
 * Implement History Feature
+	[history]
+	-> Displays Commmand History In Numerical Order
+	
+	[!!]
+	-> Runs Previous Command
+	
+	[!i]
+	-> Runs ith Command In History (Ex. !3 Runs 3rd Command)
 
 
 
