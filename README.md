@@ -3,46 +3,51 @@ Operating Systems Course Project: Creating A Shell Interface Using Java
 ________________________________________________________________________
 
 Part 1
-	* Implement SimpleShell
-	* Use ProcessBuilder Class To Create External Processes
+___________
+* Implement SimpleShell
+* Use ProcessBuilder Class To Create External Processes
 
 
 Part 2
-	* Implement [cd] Command -> Change Directory
+___________
 
-		[cd] Command MUST Include...
+* Implement [cd] Command -> Change Directory
 
-			[cd]
-			-> Change To Home Directory
+	[cd] Command MUST Include...
 
-			[cd ~]
-			-> Change To Home Directory
+		[cd]
+		-> Change To Home Directory
 
-			[cd .]
-			-> Stay At Current Directory
+		[cd ~]
+		-> Change To Home Directory
 
-			[cd ..]
-			-> Ascend One Directory
+		[cd .]
+		-> Stay At Current Directory
 
-			[cd ../../..]
-			-> Ascend Multiple (nth) Directories
+		[cd ..]
+		-> Ascend One Directory
 
-			[cd /]
-			-> Change To Root Directory 
+		[cd ../../..]
+		-> Ascend Multiple (nth) Directories
 
-	* ArrayList Data Structure Used To Decompose And Pass Commands To ProcessBuilder
+		[cd /]
+		-> Change To Root Directory 
+
+* ArrayList Data Structure Used To Decompose And Pass Commands To ProcessBuilder
         
 Part 3
-	* Implement History Feature
+___________
+
+* Implement History Feature
 	
-		[history]
-		-> Displays Commmand History In Numerical Order
+	[history]
+	-> Displays Commmand History In Numerical Order
 
-		[!!]
-		-> Runs Previous Command
+	[!!]
+	-> Runs Previous Command
 
-		[!i]
-		-> Runs ith Command In History (Ex. !3 Runs 3rd Command)
+	[!i]
+	-> Runs ith Command In History (Ex. !3 Runs 3rd Command)
 
 
 
