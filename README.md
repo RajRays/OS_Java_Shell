@@ -1,13 +1,13 @@
 # OS_Java_Shell
 Operating Systems Course Project: Creating A Shell Interface Using Java
 ________________________________________________________________________
-
+___________
 Part 1
 ___________
 * Implement SimpleShell
 * Use ProcessBuilder Class To Create External Processes
 
-
+___________
 Part 2
 ___________
 
@@ -34,7 +34,7 @@ ___________
 		-> Change To Root Directory 
 
 * ArrayList Data Structure Used To Decompose And Pass Commands To ProcessBuilder
-        
+___________   
 Part 3
 ___________
 
