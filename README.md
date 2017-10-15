@@ -10,25 +10,25 @@ Part 1
 Part 2
 * Implement [cd] Command -> Change Directory
 
-[cd] Command MUST Include...
+	[cd] Command MUST Include...
 
-[cd]
--> Change To Home Directory
+			[cd]
+			-> Change To Home Directory
 
-[cd ~]
--> Change To Home Directory
+			[cd ~]
+			-> Change To Home Directory
 
-[cd .]
--> Stay At Current Directory
+			[cd .]
+			-> Stay At Current Directory
 
-[cd ..]
--> Ascend One Directory
+			[cd ..]
+			-> Ascend One Directory
 
-[cd ../../..]
--> Ascend Multiple (nth) Directories
+			[cd ../../..]
+			-> Ascend Multiple (nth) Directories
 
-[cd /]
--> Change To Root Directory 
+			[cd /]
+			-> Change To Root Directory 
 
 
 * ArrayList Data Structure Used To Break And Pass Commands To ProcessBuilder
@@ -40,7 +40,7 @@ Part 3
 
 
 Extra Commands Added For Fun
-* "ls" -> List All Files And Directories Within Current Directory
-* "cp" -> Copy One File To Another. If File Recipient Does Not Exist, Creates File 
-* "cat" -> Reads File To Console
-* "cd" -> "cd" Is A Requirement, However I Added The Ability To Change Into Any Valid Directory
+* [ls] -> List All Files And Directories Within Current Directory
+* [cp] -> Copy One File To Another. If File Recipient Does Not Exist, Creates File 
+* [cat] -> Reads File To Console
+* [cd] -> "cd" Is A Requirement, However I Added The Ability To Change Into Any Valid Directory
