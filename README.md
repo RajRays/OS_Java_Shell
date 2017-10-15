@@ -40,14 +40,16 @@ ___________
 
 * Implement History Feature
 	
-	[history]
-	-> Displays Commmand History In Numerical Order
+	History Feature Located In Program As "History Utilities"
+	
+		[history]
+		-> Displays Commmand History In Numerical Order
 
-	[!!]
-	-> Runs Previous Command
+		[!!]
+		-> Runs Previous Command
 
-	[!i]
-	-> Runs ith Command In History (Ex. !3 Runs 3rd Command)
+		[!i]
+		-> Runs ith Command In History (Ex. !3 Runs 3rd Command)
 
 
 
