@@ -8,14 +8,15 @@ Part 1
 
 
 Part 2
-* Implement "cd" Command -> Change Directory
-* "cd" Command MUST Include...
-      * [cd]          -> Change To Home Directory
-      * [cd ~]        -> Change To Home Directory
-      * [cd .]        -> Stay At Current Directory
-      * [cd ..]       -> Ascend One Directory
-      * [cd ../../..] -> Ascend Multiple (nth) Directories
-      * [cd /]        -> Change To Root Directory 
+* Implement [cd] Command -> Change Directory
+[cd] Command MUST Include...
+[cd]          -> Change To Home Directory
+[cd ~]        -> Change To Home Directory
+[cd .]        -> Stay At Current Directory
+[cd ..]       -> Ascend One Directory
+[cd ../../..] -> Ascend Multiple (nth) Directories
+[cd /]        -> Change To Root Directory 
+
 * ArrayList Data Structure Used To Break And Pass Commands To ProcessBuilder
      
      
