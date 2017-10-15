@@ -4,7 +4,7 @@ ________________________________________________________________________
 ___________
 Part 1
 ___________
-* Implement SimpleShell
+* Implement Shell With No Commands
 * Use ProcessBuilder Class To Create External Processes
 
 ___________
@@ -52,7 +52,7 @@ ___________
 		-> Runs ith Command In History (Ex. !3 Runs 3rd Command)
 
 
-
+___________
 Extra Commands Added For Fun
 * [ls] -> List All Files And Directories Within Current Directory
 * [cp] -> Copy One File To Another. If File Recipient Does Not Exist, Creates File 
